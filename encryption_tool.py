@@ -15,7 +15,7 @@ def display_ascii_art():
 ██║  ██╗███████╗       ██║   ╚██████╔╝╚██████╔╝███████╗
 ╚═╝  ╚═╝╚══════╝       ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝
                                                        
-                                           by Kz | HXHAM
+                                           by dataexe | Github: dataexepy
     """
     colored_ascii_art = Colorate.Horizontal(Colors.blue_to_white, ascii_art)
     print(colored_ascii_art)
