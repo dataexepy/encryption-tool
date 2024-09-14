@@ -12,7 +12,7 @@ The Enhanced Encryption Tool is a powerful Python-based application designed for
 
 ## 📥 Installation
 
-1. Clone the repository:
+1. Install
    ```bash
      pip install -r requirements.txt
      python encryption_tool.py
