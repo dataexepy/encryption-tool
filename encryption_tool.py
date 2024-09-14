@@ -1,6 +1,7 @@
 import os
 import random
 import string
+import time
 from pystyle import Colorate, Colors
 
 def clear_terminal():
@@ -30,7 +31,8 @@ def display_menu():
       [1] Encrypt a message
       [2] Decrypt a message
       [3] Change Theme
-      [4] EXIT
+      [4] Donation Information
+      [5] EXIT
     ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
     """
     print(Colorate.Horizontal(current_color, menu))
@@ -68,6 +70,36 @@ def choose_theme():
         print(Colorate.Horizontal(Colors.red_to_purple, "\nInvalid choice. Defaulting to Green to Cyan."))
         current_color = Colors.green_to_cyan
 
+def display_donation_info():
+    donation_info = f"""
+╔{'═' * 50}╗
+║{' ' * 50}║
+║{'🌟 Support KZ Crypto Tool Development 🌟'.center(50)}║
+║{' ' * 50}║
+╠{'═' * 50}╣
+║{' ' * 50}║
+║{'Your support helps improve this tool!'.center(50)}║
+║{' ' * 50}║
+║{'Bitcoin (BTC):'.center(50)}║
+║{'bc1q34h0yqqqev59atskc0jszc4q3n9h5mrk73d4mz'.center(50)}║
+║{' ' * 50}║
+║{'Litecoin (LTC):'.center(50)}║
+║{'LXZqfsf2QM1gpNLGPwYqK4tX52d17GL2af'.center(50)}║
+║{' ' * 50}║
+║{'Thank you for your generosity! 🙏'.center(50)}║
+║{' ' * 50}║
+╚{'═' * 50}╝
+    """
+    print(Colorate.Vertical(current_color, donation_info))
+    
+    # Ajout d'une animation simple
+    for _ in range(3):
+        print(Colorate.Horizontal(current_color, "\n" + "💖 "*10))
+        time.sleep(0.5)
+        clear_terminal()
+        print(Colorate.Vertical(current_color, donation_info))
+        time.sleep(0.5)
+
 def main():
     global current_color
     current_color = Colors.green_to_cyan  # Default theme
@@ -94,13 +126,18 @@ def main():
             choose_theme()
 
         elif choice == "4":
+            display_donation_info()
+            input(Colorate.Horizontal(current_color, "\nPress Enter to return to the main menu..."))
+
+        elif choice == "5":
             print(Colorate.Horizontal(current_color, "\nThank you for using KZ Crypto Tool. Goodbye!"))
             break
 
         else:
             print(Colorate.Horizontal(Colors.red_to_purple, "\nInvalid option. Please try again."))
 
-        input(Colorate.Horizontal(current_color, "\nPress Enter to continue..."))
+        if choice != "4":  # Skip this for donation info as it has its own prompt
+            input(Colorate.Horizontal(current_color, "\nPress Enter to continue..."))
 
 if __name__ == "__main__":
     main()
