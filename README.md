@@ -16,3 +16,7 @@ The Enhanced Encryption Tool is a powerful Python-based application designed for
    ```bash
      pip install -r requirements.txt
      python encryption_tool.py
+👤 Author
+dataexe
+Discord: dataexe
+GitHub: @dataexepy
