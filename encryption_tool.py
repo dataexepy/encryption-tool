@@ -15,9 +15,9 @@ def display_ascii_art():
     ██║  ██╗███████╗       ██║   ╚██████╔╝╚██████╔╝███████╗
     ╚═╝  ╚═╝╚══════╝       ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝
                                                            
-                        Created by dataexe
+                    KZ Crypto Tool by dataexe
     """
-    print(Colorate.Horizontal(Colors.purple_to_blue, ascii_art))
+    print(Colorate.Horizontal(Colors.green_to_cyan, ascii_art))
 
 def display_menu():
     menu = """
@@ -32,7 +32,7 @@ def display_menu():
       [3] EXIT
     ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
     """
-    print(Colorate.Horizontal(Colors.purple_to_blue, menu))
+    print(Colorate.Horizontal(Colors.green_to_cyan, menu))
 
 def create_encryption_map():
     characters = string.ascii_letters + string.digits + string.punctuation + ' '
@@ -53,26 +53,26 @@ def main():
         display_ascii_art()
         display_menu()
 
-        choice = input(Colorate.Horizontal(Colors.purple_to_blue, "\nSelect an option: ")).strip()
+        choice = input(Colorate.Horizontal(Colors.green_to_cyan, "\nkz@crypto:~$ ")).strip()
 
         if choice == "1":
-            message = input(Colorate.Horizontal(Colors.purple_to_blue, "\nEnter the message to encrypt: "))
+            message = input(Colorate.Horizontal(Colors.green_to_cyan, "\nEnter the message to encrypt: "))
             encrypted = enhanced_encrypt(message, encryption_map)
-            print(Colorate.Horizontal(Colors.green_to_blue, f"\nEncrypted message: {encrypted}"))
+            print(Colorate.Horizontal(Colors.green_to_cyan, f"\nEncrypted message: {encrypted}"))
 
         elif choice == "2":
-            message = input(Colorate.Horizontal(Colors.purple_to_blue, "\nEnter the message to decrypt: "))
+            message = input(Colorate.Horizontal(Colors.green_to_cyan, "\nEnter the message to decrypt: "))
             decrypted = enhanced_decrypt(message, decryption_map)
-            print(Colorate.Horizontal(Colors.green_to_blue, f"\nDecrypted message: {decrypted}"))
+            print(Colorate.Horizontal(Colors.green_to_cyan, f"\nDecrypted message: {decrypted}"))
 
         elif choice == "3":
-            print(Colorate.Horizontal(Colors.purple_to_blue, "\nThank you for using KZ Tool. Goodbye!"))
+            print(Colorate.Horizontal(Colors.green_to_cyan, "\nThank you for using KZ Crypto Tool. Goodbye!"))
             break
 
         else:
             print(Colorate.Horizontal(Colors.red_to_purple, "\nInvalid option. Please try again."))
 
-        input(Colorate.Horizontal(Colors.purple_to_blue, "\nPress Enter to continue..."))
+        input(Colorate.Horizontal(Colors.green_to_cyan, "\nPress Enter to continue..."))
 
 if __name__ == "__main__":
     main()
