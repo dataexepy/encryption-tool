@@ -8,17 +8,31 @@ def clear_terminal():
 
 def display_ascii_art():
     ascii_art = """
-██╗  ██╗███████╗    ████████╗ ██████╗  ██████╗ ██╗     
-██║ ██╔╝╚══███╔╝    ╚══██╔══╝██╔═══██╗██╔═══██╗██║     
-█████╔╝   ███╔╝        ██║   ██║   ██║██║   ██║██║     
-██╔═██╗  ███╔╝         ██║   ██║   ██║██║   ██║██║     
-██║  ██╗███████╗       ██║   ╚██████╔╝╚██████╔╝███████╗
-╚═╝  ╚═╝╚══════╝       ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝
-                                                       
-                                           by dataexe | Github: dataexepy
+    ██╗  ██╗███████╗    ████████╗ ██████╗  ██████╗ ██╗     
+    ██║ ██╔╝╚══███╔╝    ╚══██╔══╝██╔═══██╗██╔═══██╗██║     
+    █████╔╝   ███╔╝        ██║   ██║   ██║██║   ██║██║     
+    ██╔═██╗  ███╔╝         ██║   ██║   ██║██║   ██║██║     
+    ██║  ██╗███████╗       ██║   ╚██████╔╝╚██████╔╝███████╗
+    ╚═╝  ╚═╝╚══════╝       ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝
+                                                           
+                        Created by dataexe
     """
-    colored_ascii_art = Colorate.Horizontal(Colors.blue_to_white, ascii_art)
-    print(colored_ascii_art)
+    print(Colorate.Horizontal(Colors.purple_to_blue, ascii_art))
+
+def display_menu():
+    menu = """
+    ╔════════════════════════════════╗
+       Discord: dataexe
+       GitHub: github.com/dataexepy
+    ╚════════════════════════════════╝
+    
+    ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+      [1] Encrypt a message
+      [2] Decrypt a message
+      [3] EXIT
+    ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+    """
+    print(Colorate.Horizontal(Colors.purple_to_blue, menu))
 
 def create_encryption_map():
     characters = string.ascii_letters + string.digits + string.punctuation + ' '
@@ -32,38 +46,33 @@ def enhanced_decrypt(cipher_text, decryption_map):
     return cipher_text.translate(decryption_map)
 
 def main():
-    clear_terminal()
-    display_ascii_art()
-
     encryption_map, decryption_map = create_encryption_map()
 
     while True:
-        print(Colorate.Horizontal(Colors.blue_to_white, "\n1. Chiffrer une phrase"))
-        print(Colorate.Horizontal(Colors.blue_to_white, "2. Déchiffrer une phrase"))
-        print(Colorate.Horizontal(Colors.blue_to_white, "3. Quitter"))
+        clear_terminal()
+        display_ascii_art()
+        display_menu()
 
-        choice = input(Colorate.Horizontal(Colors.blue_to_white, "\nSélectionnez une option: ")).strip()
+        choice = input(Colorate.Horizontal(Colors.purple_to_blue, "\nSelect an option: ")).strip()
 
         if choice == "1":
-            phrase = input(Colorate.Horizontal(Colors.blue_to_white, "\nEntrez la phrase a chiffrer: "))
-            encrypted = enhanced_encrypt(phrase, encryption_map)
-            print(Colorate.Horizontal(Colors.blue_to_white, f"Phrase chiffrée: {encrypted}"))
+            message = input(Colorate.Horizontal(Colors.purple_to_blue, "\nEnter the message to encrypt: "))
+            encrypted = enhanced_encrypt(message, encryption_map)
+            print(Colorate.Horizontal(Colors.green_to_blue, f"\nEncrypted message: {encrypted}"))
 
         elif choice == "2":
-            phrase = input(Colorate.Horizontal(Colors.blue_to_white, "\nEntrez la phrase à dechiffrer: "))
-            decrypted = enhanced_decrypt(phrase, decryption_map)
-            print(Colorate.Horizontal(Colors.blue_to_white, f"Phrase dechiffrée: {decrypted}"))
+            message = input(Colorate.Horizontal(Colors.purple_to_blue, "\nEnter the message to decrypt: "))
+            decrypted = enhanced_decrypt(message, decryption_map)
+            print(Colorate.Horizontal(Colors.green_to_blue, f"\nDecrypted message: {decrypted}"))
 
         elif choice == "3":
-            print()
+            print(Colorate.Horizontal(Colors.purple_to_blue, "\nThank you for using KZ Tool. Goodbye!"))
             break
 
         else:
-            print(Colorate.Horizontal(Colors.blue_to_white, "\nOption invalide. Veuillez reessayer."))
+            print(Colorate.Horizontal(Colors.red_to_purple, "\nInvalid option. Please try again."))
 
-        input(Colorate.Horizontal(Colors.blue_to_white, "\nAppuyez sur Entree pour continuer..."))
-        clear_terminal()
-        display_ascii_art()
+        input(Colorate.Horizontal(Colors.purple_to_blue, "\nPress Enter to continue..."))
 
 if __name__ == "__main__":
     main()
